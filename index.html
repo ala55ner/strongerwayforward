@@ -355,6 +355,16 @@
     }
 
     /* Staggered entrance animations */
+    .hero-name {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.15s var(--ease) forwards;
+    }
+
     .hero-eyebrow {
       display: flex;
       align-items: center;
@@ -1110,6 +1120,7 @@
 
       <!-- Right: navy text panel -->
       <div class="hero-text-panel">
+        <p class="hero-name">Jamie Lassner</p>
         <div class="hero-eyebrow" aria-hidden="true">
           <div class="hero-eyebrow-bar"></div>
           <span>Keynote Speaker</span>
