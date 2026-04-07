@@ -1020,19 +1020,9 @@
 
       /* Marathon — reduce padding so it doesn't feel cavernous */
       .marathon-content { padding-top: 4rem; padding-bottom: 4rem; }
-      /* Marathon — shift photo right and reveal Jamie on the right side */
-      .marathon-bg { object-position: right 15%; }
-      .marathon-overlay {
-        background: linear-gradient(
-          to right,
-          rgba(8,31,58,0.92) 0%,
-          rgba(8,31,58,0.85) 45%,
-          rgba(8,31,58,0.25) 70%,
-          rgba(8,31,58,0.05) 100%
-        );
-      }
-      .marathon-h2,
-      .marathon-body { max-width: 55%; }
+      /* Marathon — navy left half, Jamie photo on right half */
+      #marathon { background-color: var(--navy); }
+      .marathon-bg { left: 45%; width: 55%; object-position: left 15%; }
 
       /* Why */
       .why-grid { grid-template-columns: 1fr; gap: 2rem; }
