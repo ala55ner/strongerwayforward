@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>Stronger Way Forward: Jamie Lassner | Keynote Speaker</title>
+  <meta name="description" content="9/11 First Responder. Survivor. Leader. Jamie Lassner equips leaders and organizations to move forward with clarity, confidence, and decisive action. Book Jamie for your next keynote.">
+  <meta name="keywords" content="keynote speaker, leadership, Jamie Lassner, Stronger Way Forward, 9/11 first responder, crisis leadership, motivational speaker, corporate keynote">
+  <meta name="author" content="Stronger Way Forward">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Stronger Way Forward: Jamie Lassner | Keynote Speaker">
+  <meta property="og:description" content="9/11 First Responder. Survivor. Leader. Jamie Lassner helps leaders and organizations perform with precision and lead with purpose when it matters most.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/headshot-interview.jpeg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─────────────────────────────────────────────────
+       DESIGN TOKENS
+    ───────────────────────────────────────────────── */
+    :root {
+      --navy:      #081F3A;
+      --gold:      #C9A646;
+      --orange:    #E5532D;
+      --charcoal:  #111827;
+      --white:     #FFFFFF;
+      --gray:      #F2F5F9;
+      --gray-text: #6B7280;
+      --navy-dark: #040d1c;
+
+      --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --pad: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 5vw, 3rem);
+    }
+
+    /* ─────────────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font);
+      color: var(--charcoal);
+      background: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ─────────────────────────────────────────────────
+       ORPHAN CONTROL
+    ───────────────────────────────────────────────── */
+    h1, h2, h3, h4, h5, h6,
+    .hero-h1, .mission-h2, .about-name, .why-h2,
+    .gain-h2, .audiences-h2, .book-h2, .marathon-h2,
+    .hero-sub, .mission-quote, .book-sub, .book-tagline,
+    .why-sub, .gain-intro, .audiences-intro, .acc-label,
+    .about-cred-value {
+      text-wrap: balance;
+    }
+
+    p, .about-body, .mission-body, .marathon-body,
+    .acc-body-inner, .audiences-closer p,
+    .gain-footer-headline, .gain-footer-sub,
+    .why-closer p, .about-quote, .footer-copy {
+      text-wrap: pretty;
+    }
+
+    /* ─────────────────────────────────────────────────
+       ACCESSIBILITY
+    ───────────────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 9999;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0 0 6px 6px;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ─────────────────────────────────────────────────
+       SHARED UTILITIES
+    ───────────────────────────────────────────────── */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
+
+    .section-label {
+      font-family: var(--font);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .gold-bar {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 1rem 2.25rem;
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s var(--ease), transform 0.1s;
+    }
+    .btn-primary:hover { background: #c9451e; }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 1rem 2.25rem;
+      border-radius: 2px;
+      border: 1.5px solid rgba(255,255,255,0.28);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─────────────────────────────────────────────────
+       SCROLL REVEAL
+    ───────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+
+    /* ─────────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem clamp(1.5rem, 4vw, 3rem);
+      transition: background 0.4s var(--ease), padding 0.3s var(--ease), box-shadow 0.3s;
+    }
+    .nav.scrolled {
+      background: var(--navy);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      box-shadow: 0 4px 32px rgba(8,31,58,0.35);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+    }
+    .nav-wordmark { line-height: 1.15; }
+    .nav-wordmark strong {
+      display: block;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .nav-wordmark span {
+      display: block;
+      font-family: var(--font);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+    .nav-links a {
+      font-family: var(--font);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links .nav-book {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.1s !important;
+    }
+    .nav-links .nav-book::after { display: none !important; }
+    .nav-links .nav-book:hover { background: #c9451e !important; }
+    .nav-links .nav-book:active { transform: scale(0.98); }
+
+    /* Mobile toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 201;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s var(--ease), opacity 0.3s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav overlay */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--navy);
+      z-index: 199;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease);
+    }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+    .nav-overlay a {
+      font-family: var(--font);
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+    .nav-overlay a:hover { color: var(--gold); }
+    .nav-overlay .mobile-book { color: var(--gold) !important; }
+
+    /* ─────────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────────── */
+    #hero {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 55% 45%;
+    }
+
+    .hero-img-panel {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 72% top;
+    }
+    /* gradient fades image into navy panel on the right */
+    .hero-img-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(8,31,58,0.0) 0%,
+        rgba(8,31,58,0.35) 68%,
+        rgba(8,31,58,0.97) 100%
+      );
+      pointer-events: none;
+    }
+
+    .hero-text-panel {
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3.5rem 5rem 3rem;
+      position: relative;
+    }
+
+    /* Staggered entrance animations */
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s var(--ease) forwards;
+    }
+    .hero-eyebrow-bar { width: 28px; height: 1px; background: var(--gold); }
+    .hero-eyebrow span {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(201,166,70,0.9);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.45s var(--ease) forwards;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.6s var(--ease) forwards;
+    }
+
+    .hero-sub {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      max-width: 38ch;
+      margin-bottom: 2.25rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.75s var(--ease) forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.9s var(--ease) forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 0.9; }
+    }
+
+    /* ─────────────────────────────────────────────────
+       MISSION
+    ───────────────────────────────────────────────── */
+    #mission {
+      background: var(--navy);
+      padding: var(--pad);
+      position: relative;
+      overflow: hidden;
+    }
+    #mission::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), transparent 60%);
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .mission-aside { padding-top: 0.25rem; }
+
+    .mission-h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+    .mission-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.4rem;
+      max-width: 60ch;
+    }
+    .mission-quote {
+      margin-top: 2.5rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      font-style: italic;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────────────
+       ABOUT JAMIE
+    ───────────────────────────────────────────────── */
+    #about {
+      background: var(--white);
+      padding: var(--pad);
+    }
+
+    /* About: 3-column — photo | name+title | bio */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.6fr;
+      gap: clamp(2.5rem, 4vw, 4rem);
+      align-items: start;
+    }
+
+    .about-photo-col { position: relative; }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .about-id-col {
+      padding-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .about-name {
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .about-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-text);
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(8,31,58,0.1);
+    }
+    .about-credential {
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .about-cred-item {}
+    .about-cred-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .about-cred-value {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    .about-bio-col { padding-top: 0.5rem; }
+    .about-body {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: #374151;
+      margin-bottom: 1.25rem;
+    }
+    .about-quote {
+      margin-top: 1.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      font-style: italic;
+      color: #6B7280;
+      line-height: 1.75;
+    }
+
+    /* ─────────────────────────────────────────────────
+       MARATHON BAND
+    ───────────────────────────────────────────────── */
+    #marathon {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .marathon-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+    }
+    .marathon-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(8,31,58,0.93) 0%,
+        rgba(8,31,58,0.78) 50%,
+        rgba(8,31,58,0.35) 100%
+      );
+    }
+    .marathon-content {
+      position: relative;
+      z-index: 1;
+      padding: var(--pad);
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .marathon-h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 18ch;
+      margin-bottom: 1.5rem;
+    }
+    .marathon-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.88);
+      max-width: 48ch;
+    }
+
+    /* ─────────────────────────────────────────────────
+       WHY JAMIE
+    ───────────────────────────────────────────────── */
+    #why {
+      background: var(--navy);
+      padding: var(--pad);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .why-h2 {
+      font-size: clamp(1.7rem, 2.4vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .why-sub {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .why-list { border-top: 1px solid rgba(255,255,255,0.08); }
+    .why-item {
+      display: grid;
+      grid-template-columns: 2.75rem 1fr;
+      gap: 1.25rem;
+      align-items: center;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.25s var(--ease);
+    }
+    .why-item:hover { transform: translateX(5px); }
+    .why-num {
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+    .why-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    .why-closer {
+      margin-top: 2.5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .why-closer p {
+      font-size: 1.05rem;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────────────
+       WHAT YOU WILL GAIN
+    ───────────────────────────────────────────────── */
+    #gain {
+      background: var(--gray);
+      padding: var(--pad);
+    }
+
+    .gain-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: clamp(3rem, 6vw, 5.5rem);
+      align-items: start;
+    }
+
+    .gain-h2 {
+      font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .gain-intro {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #4B5563;
+    }
+
+
+    .gain-footer {
+      grid-column: 1 / -1;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(8,31,58,0.1);
+    }
+    .gain-footer-headline {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.6;
+      max-width: 58ch;
+      margin-bottom: 0.6rem;
+    }
+    .gain-footer-sub {
+      font-size: 0.97rem;
+      color: #4B5563;
+      line-height: 1.75;
+      max-width: 58ch;
+    }
+
+    /* ─────────────────────────────────────────────────
+       AUDIENCES
+    ───────────────────────────────────────────────── */
+    #audiences {
+      background: var(--white);
+      padding: var(--pad);
+    }
+
+    .audiences-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      align-items: end;
+    }
+    .audiences-h2 {
+      font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+    }
+    .audiences-intro {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #4B5563;
+    }
+
+    /* Accordion shared */
+    .accordion { border-top: 1px solid rgba(8,31,58,0.1); }
+    .acc-item { border-bottom: 1px solid rgba(8,31,58,0.1); }
+    .acc-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.4rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+    .acc-trigger:hover .acc-label { color: var(--navy); }
+    .acc-num {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      flex-shrink: 0;
+      width: 2.25rem;
+    }
+    .acc-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      flex: 1;
+      transition: color 0.2s;
+    }
+    .acc-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--gray-text);
+      transition: transform 0.3s var(--ease), color 0.2s;
+    }
+    .acc-item.open .acc-icon { transform: rotate(45deg); color: var(--navy); }
+    .acc-item.open .acc-label { color: var(--navy); }
+    .acc-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s var(--ease);
+    }
+    .acc-body-inner {
+      padding: 0 0 1.5rem 2.25rem;
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: #4B5563;
+    }
+
+    /* Gain accordion variant (on gray bg) */
+    .acc-gain .acc-label { font-weight: 500; }
+    .acc-gain .acc-trigger:hover .acc-label { color: var(--navy); }
+
+    .audiences-closer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(8,31,58,0.1);
+    }
+    .audiences-closer p {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #4B5563;
+    }
+    .audiences-closer strong { color: var(--navy); font-weight: 600; }
+
+    /* ─────────────────────────────────────────────────
+       BOOK JAMIE
+    ───────────────────────────────────────────────── */
+    #book {
+      background: var(--navy);
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 3rem);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    #book::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .book-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .book-h2 {
+      font-size: clamp(1.9rem, 3.5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .book-sub {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.85);
+      max-width: 52ch;
+      margin: 0 auto 0.75rem;
+    }
+    .book-tagline {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.72);
+      max-width: 48ch;
+      margin: 0 auto 3rem;
+      line-height: 1.65;
+    }
+    .book-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+    .btn-primary-lg {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1.15rem 2.75rem;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary-lg:hover { background: #c9451e; }
+    .btn-primary-lg:active { transform: scale(0.98); }
+
+    /* ─────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      padding: 3rem clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-brand strong {
+      display: block;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+    .footer-brand em {
+      display: block;
+      font-family: var(--font);
+      font-style: normal;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .footer-copy {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 2rem;
+    }
+    .footer-nav a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+
+    /* ─────────────────────────────────────────────────
+       RESPONSIVE — TABLET (≤1024px)
+    ───────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr 1.6fr;
+        grid-template-rows: auto auto;
+      }
+      .about-photo-col { grid-column: 1; grid-row: 1 / 3; }
+      .about-id-col    { grid-column: 2; grid-row: 1; }
+      .about-bio-col   { grid-column: 2; grid-row: 2; padding-top: 0; }
+    }
+
+    /* ─────────────────────────────────────────────────
+       RESPONSIVE — MOBILE (≤768px)
+    ───────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      /* Nav */
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-overlay { display: flex; }
+
+      /* Hero — stacked layout */
+      #hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 0;
+      }
+      .hero-img-panel {
+        height: 52vh;
+        min-height: 280px;
+        background: var(--navy);
+      }
+      .hero-img {
+        object-position: 60% 15%;
+      }
+      .hero-img-panel::after {
+        background: linear-gradient(to bottom,
+          rgba(8,31,58,0.0)  0%,
+          rgba(8,31,58,0.3)  45%,
+          rgba(8,31,58,1.0)  85%
+        );
+      }
+      .hero-text-panel {
+        padding: 2rem 1.5rem 4rem;
+        background: var(--navy);
+        margin-top: -5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-scroll { display: none; }
+
+      /* Accordion touch targets */
+      .acc-trigger { min-height: 52px; padding: 1rem 0; }
+      .acc-body-inner { padding-left: 1.25rem; }
+
+      /* Mission */
+      .mission-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-img-main { aspect-ratio: 3 / 2; object-position: center 20%; }
+
+      /* Marathon — reduce padding so it doesn't feel cavernous */
+      .marathon-content { padding-top: 4rem; padding-bottom: 4rem; }
+
+      /* Why */
+      .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      /* Gain */
+      .gain-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .gain-footer { grid-column: 1; }
+
+      /* Audiences */
+      .audiences-header { grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+
+      /* Book CTA — stack buttons */
+      .book-cta { flex-direction: column; align-items: stretch; }
+      .btn-primary-lg { width: 100%; text-align: center; }
+      .btn-ghost { width: 100%; text-align: center; }
+
+      /* Hero CTA — stack buttons */
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .hero-cta .btn-primary,
+      .hero-cta .btn-ghost { width: 100%; text-align: center; }
+
+      /* Footer */
+      footer { flex-direction: column; align-items: flex-start; gap: 1.75rem; }
+      .footer-nav { display: none; }
+    }
+
+    /* ─────────────────────────────────────────────────
+       RESPONSIVE — SMALL MOBILE (≤480px)
+    ───────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .nav { padding: 1.25rem 1rem; }
+      .hero-text-panel { padding: 2.5rem 1.25rem 3.5rem; }
+      .marathon-content { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── SKIP LINK ─────────────────────────────────── -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── NAVIGATION ────────────────────────────────── -->
+  <nav class="nav" id="site-nav" aria-label="Main navigation">
+    <a href="#hero" class="nav-brand" aria-label="Stronger Way Forward, return to top">
+      <div class="nav-wordmark">
+        <strong>Stronger Way Forward</strong>
+        <span>Lead &middot; Act &middot; Move Forward</span>
+      </div>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#about">About Jamie</a></li>
+      <li><a href="#why">Why Jamie</a></li>
+      <li><a href="#gain">What You&rsquo;ll Gain</a></li>
+      <li><a href="#audiences">Audiences</a></li>
+      <li><a href="#book" class="nav-book">Book Jamie</a></li>
+    </ul>
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-expanded="false"
+      aria-controls="nav-overlay"
+      aria-label="Open navigation menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile full-screen nav -->
+  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="#mission">Mission</a>
+    <a href="#about">About Jamie</a>
+    <a href="#why">Why Jamie</a>
+    <a href="#gain">What You&rsquo;ll Gain</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#book" class="mobile-book">Book Jamie</a>
+  </div>
+
+  <!-- ── MAIN CONTENT ───────────────────────────────── -->
+  <main id="main-content">
+
+    <!-- HERO ─────────────────────────────────────────── -->
+    <section id="hero" aria-label="Stronger Way Forward: Jamie Lassner, Keynote Speaker">
+      <!-- Left: photo panel -->
+      <div class="hero-img-panel">
+        <img
+          src="assets/images/headshot-interview.jpeg"
+          alt="Jamie Lassner at a professional speaking engagement, wearing a gray suit and bowtie"
+          class="hero-img"
+        >
+      </div>
+
+      <!-- Right: navy text panel -->
+      <div class="hero-text-panel">
+        <div class="hero-eyebrow" aria-hidden="true">
+          <div class="hero-eyebrow-bar"></div>
+          <span>Keynote Speaker</span>
+        </div>
+
+        <p class="hero-tagline">Lead &middot; Act &middot; Move Forward</p>
+
+        <h1 class="hero-h1">
+          When everything stops, your next direction&nbsp;begins.
+        </h1>
+
+        <p class="hero-sub">
+          9/11 First Responder. Survivor. Leader. Helping individuals and organizations move forward with clarity, confidence, and decisive action.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#book" class="btn-primary" aria-label="Request Jamie Lassner&rsquo;s availability for speaking">
+            Request Availability
+          </a>
+          <a href="#about" class="btn-ghost">Learn More</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MISSION ───────────────────────────────────────── -->
+    <section id="mission" aria-labelledby="mission-heading">
+      <div class="container">
+        <div class="mission-grid">
+
+          <aside class="mission-aside">
+            <p class="section-label reveal">Mission</p>
+            <div class="gold-bar reveal d1"></div>
+          </aside>
+
+          <div>
+            <h2 id="mission-heading" class="mission-h2 reveal">
+              To develop leaders and teams who think clearly, act decisively, and move forward with confidence in the moments that define outcomes.
+            </h2>
+
+            <p class="mission-body reveal d1">
+              Across corporations, financial institutions, universities, government, and first responder organizations, Jamie equips people to lead when it matters most.
+            </p>
+
+            <p class="mission-body reveal d2">
+              Because progress is not determined by circumstance. It is determined by response.
+            </p>
+
+            <blockquote class="mission-quote reveal d3">
+              The obstacle is not the end. It is the moment that demands a stronger way forward.
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT JAMIE ───────────────────────────────────── -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Col 1: Photo -->
+          <div class="about-photo-col reveal">
+            <img
+              src="assets/images/headshot-smile.jpeg"
+              alt="Jamie Lassner smiling outdoors, keynote speaker and global humanitarian"
+              class="about-img-main"
+              onerror="this.src='assets/images/film-interview.jpeg'"
+            >
+          </div>
+
+          <!-- Col 2: Name, title, credentials -->
+          <div class="about-id-col reveal d1">
+            <p class="section-label">About Jamie</p>
+            <div class="gold-bar"></div>
+            <h2 id="about-heading" class="about-name">Jamie Lassner</h2>
+            <p class="about-title">Keynote Speaker &amp; Global Humanitarian</p>
+            <div class="about-credential">
+              <div class="about-cred-item">
+                <p class="about-cred-label">Experience</p>
+                <p class="about-cred-value">9/11 First Responder, World Trade Center</p>
+              </div>
+              <div class="about-cred-item">
+                <p class="about-cred-label">Current Role</p>
+                <p class="about-cred-value">Executive, Global Nonprofit serving people with disabilities and older adults</p>
+              </div>
+              <div class="about-cred-item">
+                <p class="about-cred-label">Operating Environments</p>
+                <p class="about-cred-value">War zones, large-scale emergencies, crisis response worldwide</p>
+              </div>
+              <div class="about-cred-item">
+                <p class="about-cred-label">NYC Marathon</p>
+                <p class="about-cred-value">Finisher, TCS New York City Marathon</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 3: Condensed bio -->
+          <div class="about-bio-col reveal d2">
+            <p class="about-body">
+              Jamie Lassner is a keynote speaker and global humanitarian who helps leaders and organizations perform with precision and lead with purpose. On September 11, he was among the first responders at the World Trade Center, making real-time decisions in one of the most defining crises of our time.
+            </p>
+            <p class="about-body">
+              Today, as a global nonprofit executive, Jamie operates in crisis environments worldwide, including war zones and large-scale emergencies. He coordinates life-saving efforts and ensures the most vulnerable are never left behind. His work equips leaders with the mindset and tools to navigate uncertainty and move forward with confidence.
+            </p>
+            <p class="about-body">
+              He is deeply committed to developing the next generation of leaders, grounded in the belief that stronger leadership today creates a stronger future for all.
+            </p>
+            <blockquote class="about-quote">
+              The obstacle is not the end. It is the moment that reveals a stronger way forward.
+            </blockquote>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MARATHON BAND ─────────────────────────────────── -->
+    <section id="marathon" aria-label="Forward movement in action: Jamie Lassner at the NYC Marathon">
+      <img
+        src="assets/images/marathon-finish.jpeg"
+        alt="Jamie Lassner crossing the finish line at the TCS New York City Marathon, wearing bib number 72664 for Team T"
+        class="marathon-bg"
+      >
+      <div class="marathon-overlay" aria-hidden="true"></div>
+      <div class="marathon-content">
+        <p class="section-label reveal" style="color: rgba(201,166,70,0.8);">Forward Movement in Action</p>
+        <div class="gold-bar reveal d1"></div>
+        <h2 class="marathon-h2 reveal d2">
+          Every finish line begins with a single step forward.
+        </h2>
+        <p class="marathon-body reveal d3">
+          Jamie brings to the stage the same commitment he brings to every challenge: the discipline to keep moving when stopping seems easiest, and the clarity to know which direction matters most.
+        </p>
+      </div>
+    </section>
+
+    <!-- WHY JAMIE ─────────────────────────────────────── -->
+    <section id="why" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="why-grid">
+
+          <div>
+            <p class="section-label section-label--light reveal" style="color: rgba(201,166,70,0.8);">Why Jamie</p>
+            <div class="gold-bar reveal d1"></div>
+            <h2 id="why-heading" class="why-h2 reveal d1">
+              Real experience.<br>Real results.<br>Real leadership.
+            </h2>
+            <p class="why-sub reveal d2">
+              Not theory. Execution. Performance when it matters most.
+            </p>
+          </div>
+
+          <div>
+            <ul class="why-list reveal" role="list" aria-label="Reasons to book Jamie Lassner">
+              <li class="why-item">
+                <span class="why-num" aria-hidden="true">01</span>
+                <span class="why-text">Real-world leadership where outcomes truly mattered</span>
+              </li>
+              <li class="why-item">
+                <span class="why-num" aria-hidden="true">02</span>
+                <span class="why-text">Crisis-tested experience built through action, not theory</span>
+              </li>
+              <li class="why-item">
+                <span class="why-num" aria-hidden="true">03</span>
+                <span class="why-text">Proven ability to lead with clarity in high-stakes environments</span>
+              </li>
+              <li class="why-item">
+                <span class="why-num" aria-hidden="true">04</span>
+                <span class="why-text">Practical frameworks that drive immediate application</span>
+              </li>
+              <li class="why-item">
+                <span class="why-num" aria-hidden="true">05</span>
+                <span class="why-text">Trusted by organizations where performance is essential</span>
+              </li>
+            </ul>
+
+            <div class="why-closer reveal d2">
+              <p>Not theory. Execution. Performance when it matters most.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU WILL GAIN ────────────────────────────── -->
+    <section id="gain" aria-labelledby="gain-heading">
+      <div class="container">
+        <div class="gain-grid">
+
+          <div>
+            <p class="section-label reveal">What You Will Gain</p>
+            <div class="gold-bar reveal d1"></div>
+            <h2 id="gain-heading" class="gain-h2 reveal d1">
+              Clarity.<br>Framework.<br>Execution.
+            </h2>
+            <p class="gain-intro reveal d2">
+              This is not about motivation. It is about how you think, decide, and lead when it matters most.
+            </p>
+          </div>
+
+          <div>
+            <div class="accordion acc-gain reveal" aria-label="Skills and frameworks gained from Jamie&rsquo;s keynote">
+
+              <div class="acc-item">
+                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-1">
+                  <span class="acc-label">Clarity in high-stakes decision-making</span>
+                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <div class="acc-body" id="gain-1" role="region">
+                  <p class="acc-body-inner">When pressure is highest, clarity is rarest. Jamie equips teams with the mental frameworks to cut through noise and focus on what actually moves the situation forward.</p>
+                </div>
+              </div>
+
+              <div class="acc-item">
+                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-2">
+                  <span class="acc-label">A framework for leading through uncertainty and change</span>
+                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <div class="acc-body" id="gain-2" role="region">
+                  <p class="acc-body-inner">Not a theory. A structured approach drawn from real decision-making in real crises, applicable the moment you leave the room.</p>
+                </div>
+              </div>
+
+              <div class="acc-item">
+                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-3">
+                  <span class="acc-label">Tools to stay focused and execute under pressure</span>
+                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <div class="acc-body" id="gain-3" role="region">
+                  <p class="acc-body-inner">Practical tools that help leaders maintain focus when circumstances are shifting, stakes are high, and the margin for error is narrow.</p>
+                </div>
+              </div>
+
+              <div class="acc-item">
+                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-4">
+                  <span class="acc-label">A disciplined approach to overcoming obstacles</span>
+                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <div class="acc-body" id="gain-4" role="region">
+                  <p class="acc-body-inner">The obstacle is information. Jamie teaches leaders to read setbacks as signals and build the discipline to respond rather than react.</p>
+                </div>
+              </div>
+
+              <div class="acc-item">
+                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-5">
+                  <span class="acc-label">A mindset that turns disruption into forward movement</span>
+                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <div class="acc-body" id="gain-5" role="region">
+                  <p class="acc-body-inner">The leaders who perform best in crisis are not those who avoid disruption. They are those who have trained themselves to move through it.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="gain-footer">
+            <p class="gain-footer-headline reveal">
+              Because in critical moments, performance is not optional.
+            </p>
+            <p class="gain-footer-sub reveal d1">
+              Your response defines the outcome.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- JAMIE'S GLOBAL AUDIENCES ──────────────────────── -->
+    <section id="audiences" aria-labelledby="audiences-heading">
+      <div class="container">
+
+        <div class="audiences-header">
+          <div>
+            <p class="section-label reveal">Jamie&rsquo;s Global Audiences</p>
+            <div class="gold-bar reveal d1"></div>
+            <h2 id="audiences-heading" class="audiences-h2 reveal d1">
+              Built for environments where performance defines outcomes.
+            </h2>
+          </div>
+          <div>
+            <p class="audiences-intro reveal d2">
+              Jamie partners with leaders and teams operating in environments where alignment, precision, and decisive action are essential.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion reveal" role="list" aria-label="Organizations and sectors Jamie Lassner works with">
+
+          <div class="acc-item" role="listitem">
+            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-1">
+              <span class="acc-num" aria-hidden="true">01</span>
+              <span class="acc-label">Corporations</span>
+              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="acc-body" id="aud-1" role="region">
+              <p class="acc-body-inner">Navigating complexity, change, and high-stakes decisions where alignment and decisive leadership are essential to performance.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" role="listitem">
+            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-2">
+              <span class="acc-num" aria-hidden="true">02</span>
+              <span class="acc-label">Financial Institutions</span>
+              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="acc-body" id="aud-2" role="region">
+              <p class="acc-body-inner">Operating in fast-moving, high-pressure environments where clarity and disciplined decision-making directly affect outcomes.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" role="listitem">
+            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-3">
+              <span class="acc-num" aria-hidden="true">03</span>
+              <span class="acc-label">Universities &amp; Schools</span>
+              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="acc-body" id="aud-3" role="region">
+              <p class="acc-body-inner">Developing resilient, disciplined future leaders who can think clearly and act decisively when it matters most.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" role="listitem">
+            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-4">
+              <span class="acc-num" aria-hidden="true">04</span>
+              <span class="acc-label">Government &amp; Public Sector</span>
+              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="acc-body" id="aud-4" role="region">
+              <p class="acc-body-inner">Leaders making decisions that impact communities, requiring precision, clarity, and the ability to move forward under pressure.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" role="listitem">
+            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-5">
+              <span class="acc-num" aria-hidden="true">05</span>
+              <span class="acc-label">First Responders</span>
+              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="acc-body" id="aud-5" role="region">
+              <p class="acc-body-inner">Who must act decisively in critical moments, in environments where Jamie's experience is most directly mirrored.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" role="listitem">
+            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-6">
+              <span class="acc-num" aria-hidden="true">06</span>
+              <span class="acc-label">Healthcare Organizations</span>
+              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="acc-body" id="aud-6" role="region">
+              <p class="acc-body-inner">Where clarity and teamwork directly save lives, and where performance under pressure is not optional.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" role="listitem">
+            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-7">
+              <span class="acc-num" aria-hidden="true">07</span>
+              <span class="acc-label">Conferences &amp; Leadership Events</span>
+              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="acc-body" id="aud-7" role="region">
+              <p class="acc-body-inner">Seeking a keynote that delivers meaningful, actionable impact. Not inspiration that fades by Monday morning.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" role="listitem">
+            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-8">
+              <span class="acc-num" aria-hidden="true">08</span>
+              <span class="acc-label">Nonprofits &amp; Mission-Driven Organizations</span>
+              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="acc-body" id="aud-8" role="region">
+              <p class="acc-body-inner">Strengthening leadership, coordination, and the capacity to act with purpose in complex and resource-constrained environments.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="audiences-closer reveal">
+          <p>
+            Across every sector, the common thread is clear: environments where clarity, alignment, and decisive action define outcomes.<br><br>
+            <strong>Different industries. Same reality. Leadership is revealed in how you choose a stronger way forward.</strong>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOOK JAMIE ────────────────────────────────────── -->
+    <section id="book" aria-labelledby="book-heading">
+      <div class="book-inner">
+        <p class="section-label reveal" style="justify-content: center; display: flex; color: rgba(201,166,70,0.8);">Book Jamie</p>
+        <div class="gold-bar reveal d1" style="margin: 0 auto 2.5rem;"></div>
+
+        <h2 id="book-heading" class="book-h2 reveal d1">
+          Equip your team to think clearly, act decisively, and move forward&nbsp;with confidence.
+        </h2>
+
+        <p class="book-sub reveal d2">
+          This is not a keynote people hear. It is one they carry into how they lead.
+        </p>
+
+        <p class="book-tagline reveal d3">
+          A real-world crisis-tested leader who teaches people how to act when life hits hardest.
+        </p>
+
+        <div class="book-cta reveal d4">
+          <a
+            href="mailto:info@strongerwayfforward.com"
+            class="btn-primary-lg"
+            aria-label="Email Jamie Lassner to request speaking availability"
+          >
+            Request Availability
+          </a>
+          <a href="#about" class="btn-ghost">Learn More About Jamie</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="footer-brand">
+      <strong>Stronger Way Forward</strong>
+      <em>Lead &middot; Act &middot; Move Forward</em>
+      <p class="footer-copy">&copy; 2025 Stronger Way Forward. All rights reserved.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="#mission">Mission</a>
+      <a href="#about">About</a>
+      <a href="#why">Why Jamie</a>
+      <a href="#gain">What You&rsquo;ll Gain</a>
+      <a href="#audiences">Audiences</a>
+      <a href="#book">Book Jamie</a>
+    </nav>
+  </footer>
+
+  <!-- ── JAVASCRIPT ─────────────────────────────────── -->
+  <script>
+    // ── Nav scroll effect ────────────────────────────
+    const nav = document.getElementById('site-nav');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          nav.classList.toggle('scrolled', window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // ── Mobile nav ───────────────────────────────────
+    const toggle = document.getElementById('nav-toggle');
+    const overlay = document.getElementById('nav-overlay');
+    const overlayLinks = overlay.querySelectorAll('a');
+
+    function openNav() {
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      overlayLinks[0].focus();
+    }
+
+    function closeNav() {
+      overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', () => {
+      overlay.classList.contains('open') ? closeNav() : openNav();
+    });
+
+    overlayLinks.forEach(link => link.addEventListener('click', closeNav));
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeNav();
+    });
+
+    // Basic focus trap for mobile overlay
+    overlay.addEventListener('keydown', e => {
+      if (e.key !== 'Tab') return;
+      const focusable = [...overlay.querySelectorAll('a')];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
+    // ── Scroll reveal ────────────────────────────────
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -56px 0px' });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // ── Active nav link on scroll ─────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navAnchors.forEach(a => {
+            const isActive = a.getAttribute('href') === `#${id}`;
+            a.style.color = isActive && !a.classList.contains('nav-book')
+              ? 'rgba(255,255,255,1)'
+              : '';
+          });
+        }
+      });
+    }, { threshold: 0.45 });
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // ── Accordion ─────────────────────────────────────
+    document.querySelectorAll('.acc-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.acc-item');
+        const body = document.getElementById(trigger.getAttribute('aria-controls'));
+        const isOpen = item.classList.contains('open');
+
+        // Close all siblings in same accordion
+        const siblings = trigger.closest('.accordion').querySelectorAll('.acc-item');
+        siblings.forEach(sib => {
+          sib.classList.remove('open');
+          sib.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+          sib.querySelector('.acc-body').style.maxHeight = null;
+        });
+
+        // Toggle clicked item
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
