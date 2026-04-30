@@ -495,11 +495,8 @@
 
     .about-img-main {
       float: right;
-      width: clamp(260px, 32%, 420px);
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 2px;
+      width: clamp(240px, 30%, 380px);
+      height: auto;
       display: block;
       margin: 0 0 2rem 3.5rem;
     }
@@ -585,34 +582,53 @@
     .trusted-track-clip {
       overflow: hidden;
       border-radius: 2px;
+      position: relative;
     }
 
     .trusted-track {
       display: flex;
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
 
     .trusted-slide {
-      flex: 0 0 calc(100% / var(--per-page, 5));
+      flex: 0 0 auto;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 1.25rem 1.5rem;
       background: #fff;
+      width: 180px;
     }
 
     .trusted-slide img {
-      max-height: 90px;
-      max-width: 200px;
+      max-height: 80px;
+      max-width: 140px;
       width: auto;
       height: auto;
       object-fit: contain;
-      filter: brightness(1.5);
       mix-blend-mode: multiply;
-      transition: filter 0.25s;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .trusted-slide img:hover { filter: brightness(1); }
+
+    .trusted-slide:hover img {
+      transform: scale(1.1);
+    }
+
+    .trusted-fade {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .trusted-fade-l {
+      left: 0;
+      background: linear-gradient(to right, #ffffff 35%, transparent);
+    }
+    .trusted-fade-r {
+      right: 0;
+      background: linear-gradient(to left, #ffffff 35%, transparent);
+    }
 
     .trusted-btn {
       position: absolute;
@@ -629,31 +645,12 @@
       justify-content: center;
       color: var(--navy);
       transition: border-color 0.2s, background 0.2s;
-      z-index: 2;
+      z-index: 3;
     }
     .trusted-btn:hover { border-color: var(--navy); background: var(--navy); color: var(--white); }
-    .trusted-btn:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
     .trusted-btn svg { width: 16px; height: 16px; }
     .trusted-prev { left: -52px; }
     .trusted-next { right: -52px; }
-
-    .trusted-dots {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 1.75rem;
-    }
-    .trusted-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(8,31,58,0.18);
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-      padding: 0;
-    }
-    .trusted-dot.active { background: var(--navy); transform: scale(1.3); }
 
     @media (max-width: 768px) {
       .trusted-prev { left: -8px; }
@@ -838,21 +835,18 @@
     }
 
     .audiences-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-bottom: 4rem;
-      align-items: end;
+      max-width: 780px;
+      margin-bottom: 3rem;
     }
     .audiences-h2 {
-      font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+      font-size: clamp(1.3rem, 1.8vw, 1.9rem);
       font-weight: 800;
-      line-height: 1.2;
+      line-height: 1.3;
       letter-spacing: -0.02em;
       color: var(--navy);
     }
     .audiences-intro {
-      font-size: 0.97rem;
+      font-size: 0.95rem;
       line-height: 1.8;
       color: #4B5563;
     }
@@ -914,6 +908,40 @@
     .acc-gain .acc-label { font-weight: 500; }
     .acc-gain .acc-trigger:hover .acc-label { color: var(--navy); }
 
+    .audiences-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .audience-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.25rem;
+      border: 1.5px solid rgba(8,31,58,0.1);
+      border-radius: 6px;
+      cursor: default;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .audience-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(8,31,58,0.22);
+    }
+    .audience-icon {
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.85rem;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .audience-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.35;
+    }
     .audiences-closer {
       margin-top: 3rem;
       padding-top: 2rem;
@@ -925,6 +953,115 @@
       color: #4B5563;
     }
     .audiences-closer strong { color: var(--navy); font-weight: 600; }
+
+    /* ─────────────────────────────────────────────────
+       PHOTO GALLERY CAROUSEL
+    ───────────────────────────────────────────────── */
+    #gallery {
+      background: #081f3a;
+      padding: 4.5rem 0 3rem;
+      overflow: hidden;
+      position: relative;
+    }
+    #gallery::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding: 0 2rem;
+    }
+    .gallery-header .section-label {
+      justify-content: center;
+      display: flex;
+      color: rgba(201,166,70,0.85);
+    }
+    .gallery-header .gold-bar {
+      margin: 0.75rem auto 0;
+    }
+    .gallery-outer {
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+    }
+    .gallery-photo {
+      flex: 0 0 auto;
+      width: 320px;
+      height: 400px;
+      margin-right: 16px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+    }
+    .gallery-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .gallery-photo:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-fade {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .gallery-fade-l {
+      left: 0;
+      background: linear-gradient(to right, #081f3a 35%, transparent);
+    }
+    .gallery-fade-r {
+      right: 0;
+      background: linear-gradient(to left, #081f3a 35%, transparent);
+    }
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      background: rgba(8,31,58,0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      z-index: 3;
+    }
+    .gallery-btn:hover {
+      border-color: var(--gold);
+      background: rgba(8,31,58,0.92);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .gallery-btn:active { transform: translateY(-50%) scale(0.94); }
+    .gallery-btn svg { width: 18px; height: 18px; pointer-events: none; }
+    .gallery-prev { left: 1.25rem; }
+    .gallery-next { right: 1.25rem; }
+    @media (max-width: 768px) {
+      #gallery { padding: 4rem 0 2.5rem; }
+      .gallery-photo { width: 240px; height: 310px; margin-right: 12px; }
+      .gallery-fade { width: 56px; }
+      .gallery-btn { width: 40px; height: 40px; }
+      .gallery-prev { left: 0.5rem; }
+      .gallery-next { right: 0.5rem; }
+    }
 
     /* ─────────────────────────────────────────────────
        BOOK JAMIE
@@ -1050,7 +1187,7 @@
        RESPONSIVE — TABLET (≤1024px)
     ───────────────────────────────────────────────── */
     @media (max-width: 1024px) {
-      .about-img-main { width: clamp(220px, 38%, 340px); }
+      .about-img-main { width: clamp(200px, 35%, 320px); }
     }
 
     /* ─────────────────────────────────────────────────
@@ -1100,7 +1237,7 @@
       .mission-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 
       /* About */
-      .about-img-main { float: none; width: 100%; margin: 0 0 2rem 0; aspect-ratio: 3 / 2; object-position: center 15%; }
+      .about-img-main { float: none; width: clamp(180px, 60%, 280px); margin: 0 auto 2rem; display: block; }
 
       /* Marathon — reduce padding so it doesn't feel cavernous */
       .marathon-content { padding-top: 4rem; padding-bottom: 4rem; }
@@ -1114,6 +1251,7 @@
 
       /* Audiences */
       .audiences-header { grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+      .audiences-grid { grid-template-columns: repeat(2, 1fr); }
 
       /* Book CTA — stack buttons */
       .book-cta { flex-direction: column; align-items: stretch; }
@@ -1157,8 +1295,7 @@
     <ul class="nav-links" role="list">
       <li><a href="#mission">Mission</a></li>
       <li><a href="#about">About Jamie</a></li>
-      <li><a href="#why">Why Jamie</a></li>
-      <li><a href="#gain">What You&rsquo;ll Gain</a></li>
+      <li><a href="#why">What Jamie Will Provide</a></li>
       <li><a href="#audiences">Audiences</a></li>
       <li><a href="#book" class="nav-book">Book Jamie</a></li>
     </ul>
@@ -1180,8 +1317,7 @@
   <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <a href="#mission">Mission</a>
     <a href="#about">About Jamie</a>
-    <a href="#why">Why Jamie</a>
-    <a href="#gain">What You&rsquo;ll Gain</a>
+    <a href="#why">What Jamie Will Provide</a>
     <a href="#audiences">Audiences</a>
     <a href="#book" class="mobile-book">Book Jamie</a>
   </div>
@@ -1269,15 +1405,15 @@
           <div class="about-content reveal">
 
             <img
-              src="assets/images/r11A.jpg"
-              alt="Jamie Lassner, keynote speaker and global humanitarian"
+              src="assets/images/circle_photo.png"
+              alt="Jamie Lassner"
               class="about-img-main"
             >
 
             <p class="section-label">About Jamie</p>
             <div class="gold-bar"></div>
             <h2 id="about-heading" class="about-name">Jamie Lassner</h2>
-            <p class="about-title">Keynote Speaker &amp; Global Humanitarian</p>
+
 
             <p class="about-body">
               Jamie Lassner is a keynote speaker and global humanitarian who helps leaders and organizations perform with precision and lead with purpose. On September 11, he was among the first responders at the World Trade Center, making real-time decisions in one of the most defining crises of our time.
@@ -1320,13 +1456,14 @@
         </button>
         <div class="trusted-track-clip">
           <div class="trusted-track" id="trusted-track">
-            <!-- Logos are loaded dynamically from assets/logos/ — drop image files there -->
+            <!-- Logos are loaded dynamically from logos/ — drop image files there -->
           </div>
+          <div class="trusted-fade trusted-fade-l" aria-hidden="true"></div>
+          <div class="trusted-fade trusted-fade-r" aria-hidden="true"></div>
         </div>
         <button class="trusted-btn trusted-next" aria-label="Next logos" id="trusted-next">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
         </button>
-        <div class="trusted-dots" id="trusted-dots"></div>
       </div>
     </section>
 
@@ -1350,134 +1487,49 @@
       </div>
     </section>
 
-    <!-- WHY JAMIE ─────────────────────────────────────── -->
+    <!-- WHAT JAMIE WILL PROVIDE ────────────────────────── -->
     <section id="why" aria-labelledby="why-heading">
       <div class="container">
         <div class="why-grid">
 
           <div>
-            <p class="section-label section-label--light reveal" style="color: rgba(201,166,70,0.8);">Why Jamie</p>
+            <p class="section-label section-label--light reveal" style="color: rgba(201,166,70,0.8);">What Jamie Will Provide</p>
             <div class="gold-bar reveal d1"></div>
             <h2 id="why-heading" class="why-h2 reveal d1">
-              Real experience.<br>Real results.<br>Real leadership.
+              A Stronger Way Forward mindset rooted in decisive action and resilience
             </h2>
             <p class="why-sub reveal d2">
-              Not theory. Execution. Performance when it matters most.
+              A real-world leadership edge where your decisions drive meaningful outcomes
             </p>
           </div>
 
           <div>
-            <ul class="why-list reveal" role="list" aria-label="Reasons to book Jamie Lassner">
-              <li class="why-item">
-                <span class="why-num" aria-hidden="true">01</span>
-                <span class="why-text">Real-world leadership where outcomes truly mattered</span>
-              </li>
-              <li class="why-item">
-                <span class="why-num" aria-hidden="true">02</span>
-                <span class="why-text">Crisis-tested experience built through action, not theory</span>
-              </li>
+            <ul class="why-list reveal" role="list" aria-label="What Jamie Lassner will provide">
               <li class="why-item">
                 <span class="why-num" aria-hidden="true">03</span>
-                <span class="why-text">Proven ability to lead with clarity in high-stakes environments</span>
+                <span class="why-text">Proven frameworks forged in crisis, ready to apply immediately</span>
               </li>
               <li class="why-item">
                 <span class="why-num" aria-hidden="true">04</span>
-                <span class="why-text">Practical frameworks that drive immediate application</span>
+                <span class="why-text">The ability to lead with clarity in high-stakes environments</span>
               </li>
               <li class="why-item">
                 <span class="why-num" aria-hidden="true">05</span>
-                <span class="why-text">Trusted by organizations where performance is essential</span>
+                <span class="why-text">Clear, confident decision-making under pressure</span>
+              </li>
+              <li class="why-item">
+                <span class="why-num" aria-hidden="true">06</span>
+                <span class="why-text">Practical approaches to navigating uncertainty and leading through change</span>
+              </li>
+              <li class="why-item">
+                <span class="why-num" aria-hidden="true">07</span>
+                <span class="why-text">Tools to stay focused, aligned, and executing when it matters most</span>
+              </li>
+              <li class="why-item">
+                <span class="why-num" aria-hidden="true">08</span>
+                <span class="why-text">The discipline to overcome obstacles and sustain forward momentum</span>
               </li>
             </ul>
-
-            <div class="why-closer reveal d2">
-              <p>Not theory. Execution. Performance when it matters most.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT YOU WILL GAIN ────────────────────────────── -->
-    <section id="gain" aria-labelledby="gain-heading">
-      <div class="container">
-        <div class="gain-grid">
-
-          <div>
-            <p class="section-label reveal">What You Will Gain</p>
-            <div class="gold-bar reveal d1"></div>
-            <h2 id="gain-heading" class="gain-h2 reveal d1">
-              Clarity.<br>Framework.<br>Execution.
-            </h2>
-            <p class="gain-intro reveal d2">
-              This is not about motivation. It is about how you think, decide, and lead when it matters most.
-            </p>
-          </div>
-
-          <div>
-            <div class="accordion acc-gain reveal" aria-label="Skills and frameworks gained from Jamie&rsquo;s keynote">
-
-              <div class="acc-item">
-                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-1">
-                  <span class="acc-label">Clarity in high-stakes decision-making</span>
-                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </button>
-                <div class="acc-body" id="gain-1" role="region">
-                  <p class="acc-body-inner">When pressure is highest, clarity is rarest. Jamie equips teams with the mental frameworks to cut through noise and focus on what actually moves the situation forward.</p>
-                </div>
-              </div>
-
-              <div class="acc-item">
-                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-2">
-                  <span class="acc-label">A framework for leading through uncertainty and change</span>
-                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </button>
-                <div class="acc-body" id="gain-2" role="region">
-                  <p class="acc-body-inner">Not a theory. A structured approach drawn from real decision-making in real crises, applicable the moment you leave the room.</p>
-                </div>
-              </div>
-
-              <div class="acc-item">
-                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-3">
-                  <span class="acc-label">Tools to stay focused and execute under pressure</span>
-                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </button>
-                <div class="acc-body" id="gain-3" role="region">
-                  <p class="acc-body-inner">Practical tools that help leaders maintain focus when circumstances are shifting, stakes are high, and the margin for error is narrow.</p>
-                </div>
-              </div>
-
-              <div class="acc-item">
-                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-4">
-                  <span class="acc-label">A disciplined approach to overcoming obstacles</span>
-                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </button>
-                <div class="acc-body" id="gain-4" role="region">
-                  <p class="acc-body-inner">The obstacle is information. Jamie teaches leaders to read setbacks as signals and build the discipline to respond rather than react.</p>
-                </div>
-              </div>
-
-              <div class="acc-item">
-                <button class="acc-trigger" aria-expanded="false" aria-controls="gain-5">
-                  <span class="acc-label">A mindset that turns disruption into forward movement</span>
-                  <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </button>
-                <div class="acc-body" id="gain-5" role="region">
-                  <p class="acc-body-inner">The leaders who perform best in crisis are not those who avoid disruption. They are those who have trained themselves to move through it.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="gain-footer">
-            <p class="gain-footer-headline reveal">
-              Because in critical moments, performance is not optional.
-            </p>
-            <p class="gain-footer-sub reveal d1">
-              Your response defines the outcome.
-            </p>
           </div>
 
         </div>
@@ -1493,115 +1545,91 @@
             <p class="section-label reveal">Jamie&rsquo;s Global Audiences</p>
             <div class="gold-bar reveal d1"></div>
             <h2 id="audiences-heading" class="audiences-h2 reveal d1">
-              Built for environments where performance defines outcomes.
+              Jamie partners with leaders and teams operating in environments where alignment, precision, and decisive action are essential.
             </h2>
           </div>
-          <div>
-            <p class="audiences-intro reveal d2">
-              Jamie partners with leaders and teams operating in environments where alignment, precision, and decisive action are essential.
-            </p>
-          </div>
         </div>
 
-        <div class="accordion reveal" role="list" aria-label="Organizations and sectors Jamie Lassner works with">
+        <div class="audiences-grid reveal">
 
-          <div class="acc-item" role="listitem">
-            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-1">
-              <span class="acc-num" aria-hidden="true">01</span>
-              <span class="acc-label">Corporations</span>
-              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </button>
-            <div class="acc-body" id="aud-1" role="region">
-              <p class="acc-body-inner">Navigating complexity, change, and high-stakes decisions where alignment and decisive leadership are essential to performance.</p>
-            </div>
+          <div class="audience-card">
+            <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="17" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/>
+            </svg>
+            <span class="audience-name">Conferences &amp; Leadership Events</span>
           </div>
 
-          <div class="acc-item" role="listitem">
-            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-2">
-              <span class="acc-num" aria-hidden="true">02</span>
-              <span class="acc-label">Financial Institutions</span>
-              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </button>
-            <div class="acc-body" id="aud-2" role="region">
-              <p class="acc-body-inner">Operating in fast-moving, high-pressure environments where clarity and disciplined decision-making directly affect outcomes.</p>
-            </div>
+          <div class="audience-card">
+            <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-4a2 2 0 0 1 4 0v4"/><path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01"/>
+            </svg>
+            <span class="audience-name">Corporations</span>
           </div>
 
-          <div class="acc-item" role="listitem">
-            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-3">
-              <span class="acc-num" aria-hidden="true">03</span>
-              <span class="acc-label">Universities &amp; Schools</span>
-              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </button>
-            <div class="acc-body" id="aud-3" role="region">
-              <p class="acc-body-inner">Developing resilient, disciplined future leaders who can think clearly and act decisively when it matters most.</p>
-            </div>
+          <div class="audience-card">
+            <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
+            </svg>
+            <span class="audience-name">Financial Institutions</span>
           </div>
 
-          <div class="acc-item" role="listitem">
-            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-4">
-              <span class="acc-num" aria-hidden="true">04</span>
-              <span class="acc-label">Government &amp; Public Sector</span>
-              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </button>
-            <div class="acc-body" id="aud-4" role="region">
-              <p class="acc-body-inner">Leaders making decisions that impact communities, requiring precision, clarity, and the ability to move forward under pressure.</p>
-            </div>
+          <div class="audience-card">
+            <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            <span class="audience-name">Universities &amp; Schools</span>
           </div>
 
-          <div class="acc-item" role="listitem">
-            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-5">
-              <span class="acc-num" aria-hidden="true">05</span>
-              <span class="acc-label">First Responders</span>
-              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </button>
-            <div class="acc-body" id="aud-5" role="region">
-              <p class="acc-body-inner">Who must act decisively in critical moments, in environments where Jamie's experience is most directly mirrored.</p>
-            </div>
+          <div class="audience-card">
+            <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="5 10 5 21"/><polyline points="19 10 19 21"/><polyline points="10 10 10 21"/><polyline points="14 10 14 21"/><polygon points="12 3 2 10 22 10"/>
+            </svg>
+            <span class="audience-name">Government &amp; Public Sector</span>
           </div>
 
-          <div class="acc-item" role="listitem">
-            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-6">
-              <span class="acc-num" aria-hidden="true">06</span>
-              <span class="acc-label">Healthcare Organizations</span>
-              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </button>
-            <div class="acc-body" id="aud-6" role="region">
-              <p class="acc-body-inner">Where clarity and teamwork directly save lives, and where performance under pressure is not optional.</p>
-            </div>
+          <div class="audience-card">
+            <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="10" y1="11" x2="14" y2="11"/>
+            </svg>
+            <span class="audience-name">First Responder Department Expositions and Trainings</span>
           </div>
 
-          <div class="acc-item" role="listitem">
-            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-7">
-              <span class="acc-num" aria-hidden="true">07</span>
-              <span class="acc-label">Conferences &amp; Leadership Events</span>
-              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </button>
-            <div class="acc-body" id="aud-7" role="region">
-              <p class="acc-body-inner">Seeking a keynote that delivers meaningful, actionable impact. Not inspiration that fades by Monday morning.</p>
-            </div>
+          <div class="audience-card">
+            <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
+            <span class="audience-name">Healthcare Organizations</span>
           </div>
 
-          <div class="acc-item" role="listitem">
-            <button class="acc-trigger" aria-expanded="false" aria-controls="aud-8">
-              <span class="acc-num" aria-hidden="true">08</span>
-              <span class="acc-label">Nonprofits &amp; Mission-Driven Organizations</span>
-              <svg class="acc-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </button>
-            <div class="acc-body" id="aud-8" role="region">
-              <p class="acc-body-inner">Strengthening leadership, coordination, and the capacity to act with purpose in complex and resource-constrained environments.</p>
-            </div>
+          <div class="audience-card">
+            <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <span class="audience-name">Nonprofits &amp; Mission-Driven Organizations</span>
           </div>
 
         </div>
 
-        <div class="audiences-closer reveal">
-          <p>
-            Across every sector, the common thread is clear: environments where clarity, alignment, and decisive action define outcomes.<br><br>
-            <strong>Different industries. Same reality. Leadership is revealed in how you choose a stronger way forward.</strong>
-          </p>
-        </div>
 
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY ───────────────────────────────────── -->
+    <section id="gallery" aria-label="Jamie Lassner in action — photo gallery">
+      <div class="gallery-header">
+        <p class="section-label">In Action</p>
+        <div class="gold-bar"></div>
+      </div>
+      <div class="gallery-outer">
+        <div class="gallery-track" id="gallery-track" aria-hidden="true"></div>
+        <div class="gallery-fade gallery-fade-l" aria-hidden="true"></div>
+        <div class="gallery-fade gallery-fade-r" aria-hidden="true"></div>
+        <button class="gallery-btn gallery-prev" id="gallery-prev" aria-label="Previous photos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="gallery-btn gallery-next" id="gallery-next" aria-label="Next photos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </section>
 
@@ -1648,8 +1676,7 @@
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="#mission">Mission</a>
       <a href="#about">About</a>
-      <a href="#why">Why Jamie</a>
-      <a href="#gain">What You&rsquo;ll Gain</a>
+      <a href="#why">What Jamie Will Provide</a>
       <a href="#audiences">Audiences</a>
       <a href="#book">Book Jamie</a>
     </nav>
@@ -1747,120 +1774,268 @@
 
     sections.forEach(s => sectionObserver.observe(s));
 
+    // ── Photo gallery carousel ───────────────────────
+    (function () {
+      // Per-photo crop: object-position tuned so Jamie stays in frame
+      // Order deliberately separates similar shots (e.g. two podium close-ups)
+      const photos = [
+        { f: '0F7292CD-E8C6-4490-B082-1E4F17925276_1_201_a.jpeg', p: '58% 28%'    }, // York Revolution podium
+        { f: '1E0B02C1-643E-4717-B373-6CA14B2CEED8_1_201_a.jpeg', p: 'center 60%' }, // US Capitol, Jamie lower
+        { f: '21AA7132-754A-492E-89E5-E3525AF06368_1_201_a.jpeg', p: 'center 18%' }, // Marathon running, face top
+        { f: '271EB948-673B-4CDB-B1F2-54B24D90E0AA_1_105_c.jpeg', p: '38% 18%'   }, // Uganda workshop, Jamie upper-left
+        { f: '3207716C-C944-4271-9723-62963514ED39_1_201_a.jpeg', p: 'center 22%' }, // Corporate keynote, Jamie at back
+        { f: '3593EC94-1377-4B18-9275-96562E6F2144_1_201_a.jpeg', p: 'center 20%' }, // Marathon TV interview
+        { f: '45F8F59A-AE7E-4538-B123-334D732E0C42_1_201_a.jpeg', p: '82% 18%'   }, // M-Enabling Summit panel, Jamie right
+        { f: '60F929DD-508A-4A11-898A-7AA6AEE700B2_1_201_a.jpeg', p: '32% 10%'   }, // Podium speaking, face upper-left
+        { f: '7C27DA04-CF0D-48AD-9469-4B423CD55A45_1_201_a.jpeg', p: 'center 20%' }, // NYC Half marathon (separates the two podium shots)
+        { f: 'B074F5A7-81B1-401D-9692-C8555BEAB7A7_1_201_a.jpeg', p: '90% 28%'   }, // Ukraine/Poland soldiers, Jamie far right
+        { f: '7205003E-0FBF-4FD4-A54F-719DD2B799FD_1_201_a.jpeg', p: 'center 10%' }, // Bowtie podium close-up, face top
+        { f: 'B8DAAE7B-49D6-460E-9A87-2EC36F109A9D_1_201_a.jpeg', p: '88% 18%'   }, // Workshop conversation, Jamie right
+        { f: 'D01E1F04-1371-4706-8BF6-C5FB9488FD08_1_102_a.jpeg', p: '76% 32%'   }, // NYC film crew, Jamie on bench right
+        { f: 'DFFD6DFF-2E1E-4044-BAA4-6B50D2A46F73_1_201_a.jpeg', p: 'center 15%' }, // Marathon finish, arms raised
+        { f: 'E813BAA8-C3F4-4137-8129-7AF973F515B3_1_201_a.jpeg', p: '66% 16%'   }, // With Katie Couric, Jamie right
+{ f: 'FEB66A19-68A7-442D-9532-B0F3EFF1B003_1_201_a.jpeg', p: 'center 18%' }, // UN Vienna panel
+      ];
+
+      const track   = document.getElementById('gallery-track');
+      const prevBtn = document.getElementById('gallery-prev');
+      const nextBtn = document.getElementById('gallery-next');
+      if (!track) return;
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Render 2× for seamless loop
+      [...photos, ...photos].forEach(({ f, p }, i) => {
+        const card = document.createElement('div');
+        card.className = 'gallery-photo';
+        const img = document.createElement('img');
+        img.src = `slide_show/${f}`;
+        img.alt = '';
+        img.loading = i < 5 ? 'eager' : 'lazy';
+        img.decoding = 'async';
+        img.style.objectPosition = p;
+        card.appendChild(img);
+        track.appendChild(card);
+      });
+
+      if (reducedMotion) return; // respect OS setting
+
+      // SET_W computed from DOM on first tick (after layout)
+      let SET_W   = 0;
+      let offset  = 0;       // current scroll position in px
+      const SPEED = 0.45;    // px per frame at 60fps ≈ 27px/s
+      let autoOn  = true;
+      let hovered = false;
+      let pauseTimer = null;
+      let animTarget = null; // non-null = easing toward this offset
+
+      const outer = track.closest('.gallery-outer');
+      outer && outer.addEventListener('mouseenter', () => { hovered = true; });
+      outer && outer.addEventListener('mouseleave', () => {
+        hovered = false;
+        if (!pauseTimer) autoOn = true;
+      });
+
+      function pauseAuto(ms) {
+        autoOn = false;
+        clearTimeout(pauseTimer);
+        pauseTimer = setTimeout(() => {
+          pauseTimer = null;
+          if (!hovered) autoOn = true;
+        }, ms);
+      }
+
+      function tick() {
+        if (SET_W === 0) {
+          // Read real layout width once DOM has settled
+          SET_W = track.scrollWidth / 2;
+        }
+
+        if (!document.hidden && SET_W > 0) {
+          if (animTarget !== null) {
+            const diff = animTarget - offset;
+            offset += diff * 0.11;
+            if (Math.abs(diff) < 0.6) {
+              offset = animTarget;
+              animTarget = null;
+              // Normalise back into [0, SET_W)
+              offset = ((offset % SET_W) + SET_W) % SET_W;
+            }
+          } else if (autoOn && !hovered) {
+            offset += SPEED;
+            if (offset >= SET_W) offset -= SET_W;
+          }
+          track.style.transform = `translateX(${-offset}px)`;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      // Manual prev — shift back one card (computed from DOM)
+      prevBtn && prevBtn.addEventListener('click', () => {
+        if (animTarget !== null) return;
+        pauseAuto(2800);
+        const step = track.querySelector('.gallery-photo').offsetWidth
+                   + parseFloat(getComputedStyle(track.querySelector('.gallery-photo')).marginRight);
+        // Shift offset into upper half so target stays positive
+        offset += SET_W;
+        animTarget = offset - step;
+      });
+
+      // Manual next — advance one card
+      nextBtn && nextBtn.addEventListener('click', () => {
+        if (animTarget !== null) return;
+        pauseAuto(2800);
+        const step = track.querySelector('.gallery-photo').offsetWidth
+                   + parseFloat(getComputedStyle(track.querySelector('.gallery-photo')).marginRight);
+        animTarget = offset + step;
+      });
+    })();
+
     // ── Trusted-by carousel ──────────────────────────
     (function () {
       const logos = [
-        '0CD56EBD-6640-4ACB-AD53-CC943ACC5705_4_5005_c.jpeg',
-        '1311C7C7-3F44-481A-B1DF-C485EEACF988_4_5005_c.jpeg',
-        '139FC812-2AEF-41A5-97D4-B59687A4C6DF_4_5005_c.jpeg',
-        '1DBD922E-00FE-49C4-AFE9-01C7F0BA80E0_4_5005_c.jpeg',
-        '2DA73740-11FD-4D4D-8070-FB4978780438_4_5005_c.jpeg',
-        '3230CB45-6427-4275-A6D4-1688A37ADF6D_4_5005_c.jpeg',
-        '33D7C108-E3DE-4EDC-A12D-66C2602BBC79_4_5005_c.jpeg',
-        '4FC405C6-DC6C-44C3-907B-2919E5FC368C_4_5005_c.jpeg',
-        '5290D0C0-0726-412F-9F6C-C6057AC8A544_4_5005_c.jpeg',
-        '6019F8EB-1874-43D8-8B67-3D4883897ECB_4_5005_c.jpeg',
-        '6CB109DF-9E20-421B-A1D6-96F7561D14B2_1_105_c.jpeg',
-        '6EC639DF-27A0-44D0-8DDE-9F66BDC47AEA_4_5005_c.jpeg',
-        '829EE48C-7806-418C-9F15-F150DA0357EA_4_5005_c.jpeg',
-        '8B4BF6B2-481A-435E-970D-8A7C27A4A243.png',
-        '98E28F78-B529-43AC-9843-7B6BF5CBB201_4_5005_c.jpeg',
-        '9B97A1C6-86F3-45FF-B099-94323E2DCD54_4_5005_c.jpeg',
-        '9BD770C4-ACBF-459A-A3BB-6CDA1C237C85_4_5005_c.jpeg',
-        'A9957CFC-B943-4CF0-ADEF-00B1769D5309_1_105_c.jpeg',
-        'B25D3216-E0CF-4925-A2E8-8B360B920FE0_1_105_c.jpeg',
-        'BDFB28B2-D0AE-49FE-ACE5-0565D2A4B89B_4_5005_c.jpeg',
-        'CB1E832C-C670-4A6F-A61D-DA814486F4FB_4_5005_c.jpeg',
-        'CE24A160-9F06-4315-AA6F-66B4B800FD1B_4_5005_c.jpeg',
+        'BP-logo.jpg',
         'Celanese.svg.png',
-        'D2B6B89E-348F-49F0-A3C7-62E938EB7980_4_5005_c.jpeg',
-        'D33264C9-0309-4E75-A105-2954DE19AE75.png',
-        'D8D951B4-1E42-4F54-BCB3-555210B1AC1A.png',
-        'DB2950F0-F304-4830-BC3A-E29CB664981C_4_5005_c.jpeg',
-        'DB5E6EE0-87CD-4CD9-B0E5-438102BF1C68_1_105_c.jpeg',
-        'DF78D21F-9CCB-449D-9180-0F475EEED8E6_4_5005_c.jpeg',
-        'E4B3316B-FF88-4827-83A7-84E77F52D095_4_5005_c.jpeg',
-        'F000996A-1510-43E6-877E-40068A47FDEC_4_5005_c.jpeg',
-        'F251CF43-A70F-4D62-B284-2496A62F7B80_4_5005_c.jpeg',
-        'FA5CA642-6EDD-4CB2-8B2A-044974D5375D_4_5005_c.jpeg',
+        'ExxonMobil-Logo.wine.png',
+        'NYU-Logo.png',
+        'Patch_of_the_New_York_City_Police_Department.svg.png',
+        'Seal_of_the_United_States_Congress.svg.png',
+        'Shell-Logo.png',
+        'adm.jpg',
+        'assembly ny.jpeg',
+        'citi.svg.png',
+        'fjl.jpeg',
+        'hapag-lloyd-ag.png',
+        'jetblue.jpeg',
+        'kodak.svg',
+        'methanex.jpeg',
+        'mosaic.png',
+        'ncsy.png',
+        'nyc public schools.jpg',
+        'nyfd.svg.png',
+        'oit.jpeg',
+        'pitt police.jpeg',
+        'prysmeol.jpeg',
+        'shreevport.jpeg',
+        'shriner.jpeg',
+        'teach nys.png',
+        'trinidad.jpeg',
+        'uganda.png',
+        'un vienna.jpeg',
+        'unhcr.png',
+        'us air.png',
+        'us army.png',
+        'v foundation.jpeg',
         'yara.png',
+        'york revolution.jpeg',
       ];
 
-      const clip     = document.getElementById('trusted-track').parentElement;
-      const track    = document.getElementById('trusted-track');
-      const dotsWrap = document.getElementById('trusted-dots');
-      const prevBtn  = document.getElementById('trusted-prev');
-      const nextBtn  = document.getElementById('trusted-next');
+      const track   = document.getElementById('trusted-track');
+      const clip    = track && track.parentElement;
+      const prevBtn = document.getElementById('trusted-prev');
+      const nextBtn = document.getElementById('trusted-next');
       if (!track) return;
 
-      const perPage = () => window.innerWidth <= 600 ? 2 : window.innerWidth <= 900 ? 3 : 5;
-      let pp = perPage();
-      let page = 0;
-      const totalPages = () => Math.ceil(logos.length / pp);
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // Build slides once
-      logos.forEach(file => {
+      // Render 2× for seamless loop
+      [...logos, ...logos].forEach((file, i) => {
         const slide = document.createElement('div');
         slide.className = 'trusted-slide';
         const img = document.createElement('img');
-        img.src = `assets/logos/${file}`;
+        img.src = `logos/${file}`;
         img.alt = '';
-        img.loading = 'lazy';
+        img.loading = i < 8 ? 'eager' : 'lazy';
+        img.decoding = 'async';
         slide.appendChild(img);
         track.appendChild(slide);
       });
 
-      const slides = Array.from(track.querySelectorAll('.trusted-slide'));
+      if (reducedMotion) return;
 
-      function layout() {
-        const clipW = clip.offsetWidth;
-        const slideW = clipW / pp;
-        // Set explicit pixel widths so the track is always exactly the right size
-        slides.forEach(s => {
-          s.style.width = slideW + 'px';
-          s.style.flexShrink = '0';
-          s.style.flex = 'none';
-        });
-        track.style.width = (slideW * logos.length) + 'px';
-      }
+      let SET_W      = 0;
+      let offset     = 0;
+      const SPEED    = 0.45;
+      let autoOn     = true;
+      let hovered    = false;
+      let pauseTimer = null;
+      let animTarget = null;
 
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        for (let i = 0; i < totalPages(); i++) {
-          const d = document.createElement('button');
-          d.className = 'trusted-dot' + (i === page ? ' active' : '');
-          d.setAttribute('aria-label', `Page ${i + 1}`);
-          d.addEventListener('click', () => goTo(i));
-          dotsWrap.appendChild(d);
-        }
-      }
-
-      function goTo(idx) {
-        page = Math.max(0, Math.min(idx, totalPages() - 1));
-        // Move exactly one full clip width per page
-        const clipW = clip.offsetWidth;
-        track.style.transform = `translateX(-${page * clipW}px)`;
-        prevBtn.disabled = page === 0;
-        nextBtn.disabled = page >= totalPages() - 1;
-        dotsWrap.querySelectorAll('.trusted-dot').forEach((d, i) =>
-          d.classList.toggle('active', i === page)
-        );
-      }
-
-      prevBtn.addEventListener('click', () => goTo(page - 1));
-      nextBtn.addEventListener('click', () => goTo(page + 1));
-
-      layout();
-      buildDots();
-      goTo(0);
-
-      window.addEventListener('resize', () => {
-        const newPP = perPage();
-        if (newPP !== pp) { pp = newPP; page = 0; }
-        layout();
-        buildDots();
-        goTo(page);
+      clip.addEventListener('mouseenter', () => { hovered = true; });
+      clip.addEventListener('mouseleave', () => {
+        hovered = false;
+        if (!pauseTimer) autoOn = true;
       });
+
+      function pauseAuto(ms) {
+        autoOn = false;
+        clearTimeout(pauseTimer);
+        pauseTimer = setTimeout(() => {
+          pauseTimer = null;
+          if (!hovered) autoOn = true;
+        }, ms);
+      }
+
+      function tick() {
+        if (SET_W === 0) SET_W = track.scrollWidth / 2;
+
+        if (!document.hidden && SET_W > 0) {
+          if (animTarget !== null) {
+            const diff = animTarget - offset;
+            offset += diff * 0.11;
+            if (Math.abs(diff) < 0.6) {
+              offset = animTarget;
+              animTarget = null;
+              offset = ((offset % SET_W) + SET_W) % SET_W;
+            }
+          } else if (autoOn && !hovered) {
+            offset += SPEED;
+            if (offset >= SET_W) offset -= SET_W;
+          }
+          track.style.transform = `translateX(${-offset}px)`;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      function slideStep() {
+        const s = track.querySelector('.trusted-slide');
+        return s ? s.offsetWidth : 180;
+      }
+
+      prevBtn && prevBtn.addEventListener('click', () => {
+        if (animTarget !== null) return;
+        pauseAuto(2800);
+        offset += SET_W;
+        animTarget = offset - slideStep();
+      });
+
+      nextBtn && nextBtn.addEventListener('click', () => {
+        if (animTarget !== null) return;
+        pauseAuto(2800);
+        animTarget = offset + slideStep();
+      });
+
+      // Touch swipe
+      let touchStartX = null;
+      clip.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+      clip.addEventListener('touchend', e => {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        touchStartX = null;
+        if (Math.abs(dx) < 30) return;
+        if (animTarget !== null) return;
+        pauseAuto(2800);
+        if (dx < 0) {
+          animTarget = offset + slideStep();
+        } else {
+          offset += SET_W;
+          animTarget = offset - slideStep();
+        }
+      }, { passive: true });
     })();
 
     // ── Accordion ─────────────────────────────────────
