@@ -459,7 +459,7 @@
     .mission-aside { padding-top: 0.25rem; }
 
     .mission-h2 {
-      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+      font-size: clamp(1.9rem, 2.9vw, 2.9rem);
       font-weight: 700;
       line-height: 1.3;
       letter-spacing: -0.01em;
@@ -467,19 +467,19 @@
       margin-bottom: 2rem;
     }
     .mission-body {
-      font-size: 1rem;
-      line-height: 1.85;
+      font-size: 1.15rem;
+      line-height: 1.9;
       color: rgba(255,255,255,0.85);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.6rem;
       max-width: 60ch;
     }
     .mission-quote {
       margin-top: 2.5rem;
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       font-weight: 500;
       font-style: italic;
       color: rgba(255,255,255,0.78);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     /* ─────────────────────────────────────────────────
@@ -490,84 +490,175 @@
       padding: var(--pad);
     }
 
-    /* About: 3-column — photo | name+title | bio */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1.6fr;
-      gap: clamp(2.5rem, 4vw, 4rem);
-      align-items: start;
-    }
+    /* About: float layout so text wraps around photo */
+    .about-grid { display: block; }
 
-    .about-photo-col { position: relative; }
     .about-img-main {
-      width: 100%;
+      float: right;
+      width: clamp(260px, 32%, 420px);
       aspect-ratio: 4 / 5;
       object-fit: cover;
       object-position: center top;
       border-radius: 2px;
       display: block;
+      margin: 0 0 2rem 3.5rem;
     }
 
-    .about-id-col {
-      padding-top: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .about-grid::after { content: ''; display: table; clear: both; }
+
+    .about-content { display: block; }
+
     .about-name {
-      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
       font-weight: 800;
       line-height: 1.0;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
       color: var(--navy);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
     .about-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gray-text);
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(8,31,58,0.1);
-    }
-    .about-credential {
-      margin-top: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .about-cred-item {}
-    .about-cred-label {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.2rem;
-    }
-    .about-cred-value {
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--charcoal);
-      line-height: 1.4;
+      margin-bottom: 2.5rem;
     }
 
-    .about-bio-col { padding-top: 0.5rem; }
     .about-body {
-      font-size: 0.97rem;
+      font-size: 1rem;
       line-height: 1.85;
       color: #374151;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
     }
-    .about-quote {
-      margin-top: 1.75rem;
-      font-size: 0.95rem;
+
+    .about-facts {
+      margin-top: 2rem;
+      border-top: 1px solid rgba(8,31,58,0.1);
+    }
+    .about-fact {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(8,31,58,0.1);
+    }
+    .about-fact-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .about-fact-value {
+      font-size: 0.9rem;
       font-weight: 500;
-      font-style: italic;
-      color: #6B7280;
-      line-height: 1.75;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────────────
+       TRUSTED BY
+    ───────────────────────────────────────────────── */
+    #trusted {
+      background: var(--white);
+      padding: 4rem clamp(1.5rem, 5vw, 3rem);
+      border-top: 1px solid rgba(8,31,58,0.07);
+    }
+
+    .trusted-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .trusted-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray-text);
+    }
+
+    .trusted-carousel-wrap {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .trusted-track-clip {
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .trusted-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .trusted-slide {
+      flex: 0 0 calc(100% / var(--per-page, 5));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem 1.5rem;
+      background: #fff;
+    }
+
+    .trusted-slide img {
+      max-height: 90px;
+      max-width: 200px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(1.5);
+      mix-blend-mode: multiply;
+      transition: filter 0.25s;
+    }
+    .trusted-slide img:hover { filter: brightness(1); }
+
+    .trusted-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(8,31,58,0.15);
+      background: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      transition: border-color 0.2s, background 0.2s;
+      z-index: 2;
+    }
+    .trusted-btn:hover { border-color: var(--navy); background: var(--navy); color: var(--white); }
+    .trusted-btn:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
+    .trusted-btn svg { width: 16px; height: 16px; }
+    .trusted-prev { left: -52px; }
+    .trusted-next { right: -52px; }
+
+    .trusted-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 1.75rem;
+    }
+    .trusted-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(8,31,58,0.18);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+    .trusted-dot.active { background: var(--navy); transform: scale(1.3); }
+
+    @media (max-width: 768px) {
+      .trusted-prev { left: -8px; }
+      .trusted-next { right: -8px; }
+      .trusted-slide { padding: 1rem; }
     }
 
     /* ─────────────────────────────────────────────────
@@ -959,13 +1050,7 @@
        RESPONSIVE — TABLET (≤1024px)
     ───────────────────────────────────────────────── */
     @media (max-width: 1024px) {
-      .about-grid {
-        grid-template-columns: 1fr 1.6fr;
-        grid-template-rows: auto auto;
-      }
-      .about-photo-col { grid-column: 1; grid-row: 1 / 3; }
-      .about-id-col    { grid-column: 2; grid-row: 1; }
-      .about-bio-col   { grid-column: 2; grid-row: 2; padding-top: 0; }
+      .about-img-main { width: clamp(220px, 38%, 340px); }
     }
 
     /* ─────────────────────────────────────────────────
@@ -1015,8 +1100,7 @@
       .mission-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 
       /* About */
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .about-img-main { aspect-ratio: 3 / 2; object-position: center 20%; }
+      .about-img-main { float: none; width: 100%; margin: 0 0 2rem 0; aspect-ratio: 3 / 2; object-position: center 15%; }
 
       /* Marathon — reduce padding so it doesn't feel cavernous */
       .marathon-content { padding-top: 4rem; padding-bottom: 4rem; }
@@ -1127,18 +1211,17 @@
         <p class="hero-tagline">Lead &middot; Act &middot; Move Forward</p>
 
         <h1 class="hero-h1">
-          When everything stops, your next direction&nbsp;begins.
+          When everything stops, leaders are revealed and direction is&nbsp;decided.
         </h1>
 
         <p class="hero-sub">
-          9/11 First Responder. Survivor. Leader. Helping individuals and organizations move forward with clarity, confidence, and decisive action.
+          Turn &ldquo;Me&rdquo; into &ldquo;We&rdquo; so your team moves with clarity, discipline, and action when it matters most.
         </p>
 
         <div class="hero-cta">
-          <a href="#book" class="btn-primary" aria-label="Request Jamie Lassner&rsquo;s availability for speaking">
-            Request Availability
+          <a href="mailto:Jamie@jamielassner.com,jamie@strongerwayforward.com" class="btn-primary" aria-label="Start a conversation with Jamie Lassner">
+            Start Conversation with Jamie
           </a>
-          <a href="#about" class="btn-ghost">Learn More</a>
         </div>
 
       </div>
@@ -1156,20 +1239,22 @@
 
           <div>
             <h2 id="mission-heading" class="mission-h2 reveal">
-              To develop leaders and teams who think clearly, act decisively, and move forward with confidence in the moments that define outcomes.
+              Jamie develops leaders and teams who think clearly, act decisively, and move forward with confidence in the moments that define outcomes.
             </h2>
 
             <p class="mission-body reveal d1">
-              Across corporations, financial institutions, universities, government, and first responder organizations, Jamie equips people to lead when it matters most.
+              Across corporations, financial institutions, universities/schools, government, and first responder organizations, Jamie equips people to lead when it matters most.
             </p>
 
             <p class="mission-body reveal d2">
               Because progress is not determined by circumstance. It is determined by response.
             </p>
 
-            <blockquote class="mission-quote reveal d3">
-              The obstacle is not the end. It is the moment that demands a stronger way forward.
-            </blockquote>
+            <div class="reveal d3" style="margin-top: 2.5rem;">
+              <a href="mailto:Jamie@jamielassner.com,jamie@strongerwayforward.com" class="btn-primary" aria-label="Contact Jamie Lassner">
+                Contact Jamie
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1180,59 +1265,68 @@
       <div class="container">
         <div class="about-grid">
 
-          <!-- Col 1: Photo -->
-          <div class="about-photo-col reveal">
-            <img
-              src="assets/images/headshot-smile.jpeg"
-              alt="Jamie Lassner smiling outdoors, keynote speaker and global humanitarian"
-              class="about-img-main"
-              onerror="this.src='assets/images/film-interview.jpeg'"
-            >
-          </div>
+          <!-- Photo floats right; content wraps around it -->
+          <div class="about-content reveal">
 
-          <!-- Col 2: Name, title, credentials -->
-          <div class="about-id-col reveal d1">
+            <img
+              src="assets/images/r11A.jpg"
+              alt="Jamie Lassner, keynote speaker and global humanitarian"
+              class="about-img-main"
+            >
+
             <p class="section-label">About Jamie</p>
             <div class="gold-bar"></div>
             <h2 id="about-heading" class="about-name">Jamie Lassner</h2>
             <p class="about-title">Keynote Speaker &amp; Global Humanitarian</p>
-            <div class="about-credential">
-              <div class="about-cred-item">
-                <p class="about-cred-label">Experience</p>
-                <p class="about-cred-value">9/11 First Responder, World Trade Center</p>
-              </div>
-              <div class="about-cred-item">
-                <p class="about-cred-label">Current Role</p>
-                <p class="about-cred-value">Executive, Global Nonprofit serving people with disabilities and older adults</p>
-              </div>
-              <div class="about-cred-item">
-                <p class="about-cred-label">Operating Environments</p>
-                <p class="about-cred-value">War zones, large-scale emergencies, crisis response worldwide</p>
-              </div>
-              <div class="about-cred-item">
-                <p class="about-cred-label">NYC Marathon</p>
-                <p class="about-cred-value">Finisher, TCS New York City Marathon</p>
-              </div>
-            </div>
-          </div>
 
-          <!-- Col 3: Condensed bio -->
-          <div class="about-bio-col reveal d2">
             <p class="about-body">
               Jamie Lassner is a keynote speaker and global humanitarian who helps leaders and organizations perform with precision and lead with purpose. On September 11, he was among the first responders at the World Trade Center, making real-time decisions in one of the most defining crises of our time.
             </p>
             <p class="about-body">
-              Today, as a global nonprofit executive, Jamie operates in crisis environments worldwide, including war zones and large-scale emergencies. He coordinates life-saving efforts and ensures the most vulnerable are never left behind. His work equips leaders with the mindset and tools to navigate uncertainty and move forward with confidence.
+              Today, as a global nonprofit executive, Jamie operates in crisis environments worldwide, including war zones and large-scale emergencies. He coordinates life-saving efforts and ensures the most vulnerable are never left behind.
             </p>
             <p class="about-body">
               He is deeply committed to developing the next generation of leaders, grounded in the belief that stronger leadership today creates a stronger future for all.
             </p>
-            <blockquote class="about-quote">
-              The obstacle is not the end. It is the moment that reveals a stronger way forward.
-            </blockquote>
+
+            <div class="about-facts">
+              <div class="about-fact">
+                <p class="about-fact-label">Experience</p>
+                <p class="about-fact-value">9/11 First Responder, World Trade Center &nbsp;&middot;&nbsp; Commodities Broker &nbsp;&middot;&nbsp; Educator &nbsp;&middot;&nbsp; Evacuation Volunteer in War/Crisis Zone</p>
+              </div>
+              <div class="about-fact">
+                <p class="about-fact-label">Current Role</p>
+                <p class="about-fact-value">Executive, Global Nonprofit serving people with disabilities and older adults</p>
+              </div>
+              <div class="about-fact">
+                <p class="about-fact-label">Accomplishments</p>
+                <p class="about-fact-value">Over 4-decade Volunteer NY State EMT &nbsp;&middot;&nbsp; 200-Pound Personal Transformation &nbsp;&middot;&nbsp; 3-time NYC Marathon finisher &nbsp;&middot;&nbsp; 5-time Sprint Triathlon finisher</p>
+              </div>
+            </div>
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- TRUSTED BY ───────────────────────────────────── -->
+    <section id="trusted" aria-label="Trusted by leaders at these organizations">
+      <div class="trusted-header">
+        <p class="trusted-label">Trusted by leaders at</p>
+      </div>
+      <div class="trusted-carousel-wrap">
+        <button class="trusted-btn trusted-prev" aria-label="Previous logos" id="trusted-prev">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <div class="trusted-track-clip">
+          <div class="trusted-track" id="trusted-track">
+            <!-- Logos are loaded dynamically from assets/logos/ — drop image files there -->
+          </div>
+        </div>
+        <button class="trusted-btn trusted-next" aria-label="Next logos" id="trusted-next">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <div class="trusted-dots" id="trusted-dots"></div>
       </div>
     </section>
 
@@ -1531,13 +1625,12 @@
 
         <div class="book-cta reveal d4">
           <a
-            href="mailto:info@strongerwayfforward.com"
+            href="mailto:Jamie@jamielassner.com,jamie@strongerwayforward.com"
             class="btn-primary-lg"
-            aria-label="Email Jamie Lassner to request speaking availability"
+            aria-label="Start a conversation with Jamie Lassner"
           >
-            Request Availability
+            Start Conversation with Jamie
           </a>
-          <a href="#about" class="btn-ghost">Learn More About Jamie</a>
         </div>
       </div>
     </section>
@@ -1653,6 +1746,122 @@
     }, { threshold: 0.45 });
 
     sections.forEach(s => sectionObserver.observe(s));
+
+    // ── Trusted-by carousel ──────────────────────────
+    (function () {
+      const logos = [
+        '0CD56EBD-6640-4ACB-AD53-CC943ACC5705_4_5005_c.jpeg',
+        '1311C7C7-3F44-481A-B1DF-C485EEACF988_4_5005_c.jpeg',
+        '139FC812-2AEF-41A5-97D4-B59687A4C6DF_4_5005_c.jpeg',
+        '1DBD922E-00FE-49C4-AFE9-01C7F0BA80E0_4_5005_c.jpeg',
+        '2DA73740-11FD-4D4D-8070-FB4978780438_4_5005_c.jpeg',
+        '3230CB45-6427-4275-A6D4-1688A37ADF6D_4_5005_c.jpeg',
+        '33D7C108-E3DE-4EDC-A12D-66C2602BBC79_4_5005_c.jpeg',
+        '4FC405C6-DC6C-44C3-907B-2919E5FC368C_4_5005_c.jpeg',
+        '5290D0C0-0726-412F-9F6C-C6057AC8A544_4_5005_c.jpeg',
+        '6019F8EB-1874-43D8-8B67-3D4883897ECB_4_5005_c.jpeg',
+        '6CB109DF-9E20-421B-A1D6-96F7561D14B2_1_105_c.jpeg',
+        '6EC639DF-27A0-44D0-8DDE-9F66BDC47AEA_4_5005_c.jpeg',
+        '829EE48C-7806-418C-9F15-F150DA0357EA_4_5005_c.jpeg',
+        '8B4BF6B2-481A-435E-970D-8A7C27A4A243.png',
+        '98E28F78-B529-43AC-9843-7B6BF5CBB201_4_5005_c.jpeg',
+        '9B97A1C6-86F3-45FF-B099-94323E2DCD54_4_5005_c.jpeg',
+        '9BD770C4-ACBF-459A-A3BB-6CDA1C237C85_4_5005_c.jpeg',
+        'A9957CFC-B943-4CF0-ADEF-00B1769D5309_1_105_c.jpeg',
+        'B25D3216-E0CF-4925-A2E8-8B360B920FE0_1_105_c.jpeg',
+        'BDFB28B2-D0AE-49FE-ACE5-0565D2A4B89B_4_5005_c.jpeg',
+        'CB1E832C-C670-4A6F-A61D-DA814486F4FB_4_5005_c.jpeg',
+        'CE24A160-9F06-4315-AA6F-66B4B800FD1B_4_5005_c.jpeg',
+        'Celanese.svg.png',
+        'D2B6B89E-348F-49F0-A3C7-62E938EB7980_4_5005_c.jpeg',
+        'D33264C9-0309-4E75-A105-2954DE19AE75.png',
+        'D8D951B4-1E42-4F54-BCB3-555210B1AC1A.png',
+        'DB2950F0-F304-4830-BC3A-E29CB664981C_4_5005_c.jpeg',
+        'DB5E6EE0-87CD-4CD9-B0E5-438102BF1C68_1_105_c.jpeg',
+        'DF78D21F-9CCB-449D-9180-0F475EEED8E6_4_5005_c.jpeg',
+        'E4B3316B-FF88-4827-83A7-84E77F52D095_4_5005_c.jpeg',
+        'F000996A-1510-43E6-877E-40068A47FDEC_4_5005_c.jpeg',
+        'F251CF43-A70F-4D62-B284-2496A62F7B80_4_5005_c.jpeg',
+        'FA5CA642-6EDD-4CB2-8B2A-044974D5375D_4_5005_c.jpeg',
+        'yara.png',
+      ];
+
+      const clip     = document.getElementById('trusted-track').parentElement;
+      const track    = document.getElementById('trusted-track');
+      const dotsWrap = document.getElementById('trusted-dots');
+      const prevBtn  = document.getElementById('trusted-prev');
+      const nextBtn  = document.getElementById('trusted-next');
+      if (!track) return;
+
+      const perPage = () => window.innerWidth <= 600 ? 2 : window.innerWidth <= 900 ? 3 : 5;
+      let pp = perPage();
+      let page = 0;
+      const totalPages = () => Math.ceil(logos.length / pp);
+
+      // Build slides once
+      logos.forEach(file => {
+        const slide = document.createElement('div');
+        slide.className = 'trusted-slide';
+        const img = document.createElement('img');
+        img.src = `assets/logos/${file}`;
+        img.alt = '';
+        img.loading = 'lazy';
+        slide.appendChild(img);
+        track.appendChild(slide);
+      });
+
+      const slides = Array.from(track.querySelectorAll('.trusted-slide'));
+
+      function layout() {
+        const clipW = clip.offsetWidth;
+        const slideW = clipW / pp;
+        // Set explicit pixel widths so the track is always exactly the right size
+        slides.forEach(s => {
+          s.style.width = slideW + 'px';
+          s.style.flexShrink = '0';
+          s.style.flex = 'none';
+        });
+        track.style.width = (slideW * logos.length) + 'px';
+      }
+
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i < totalPages(); i++) {
+          const d = document.createElement('button');
+          d.className = 'trusted-dot' + (i === page ? ' active' : '');
+          d.setAttribute('aria-label', `Page ${i + 1}`);
+          d.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(d);
+        }
+      }
+
+      function goTo(idx) {
+        page = Math.max(0, Math.min(idx, totalPages() - 1));
+        // Move exactly one full clip width per page
+        const clipW = clip.offsetWidth;
+        track.style.transform = `translateX(-${page * clipW}px)`;
+        prevBtn.disabled = page === 0;
+        nextBtn.disabled = page >= totalPages() - 1;
+        dotsWrap.querySelectorAll('.trusted-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === page)
+        );
+      }
+
+      prevBtn.addEventListener('click', () => goTo(page - 1));
+      nextBtn.addEventListener('click', () => goTo(page + 1));
+
+      layout();
+      buildDots();
+      goTo(0);
+
+      window.addEventListener('resize', () => {
+        const newPP = perPage();
+        if (newPP !== pp) { pp = newPP; page = 0; }
+        layout();
+        buildDots();
+        goTo(page);
+      });
+    })();
 
     // ── Accordion ─────────────────────────────────────
     document.querySelectorAll('.acc-trigger').forEach(trigger => {
